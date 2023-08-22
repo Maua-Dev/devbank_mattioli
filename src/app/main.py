@@ -11,7 +11,6 @@ from .enums.item_type_enum import ItemTypeEnum
 
 from .entities.item import Item
 
-
 app = FastAPI()
 
 repo = Environments.get_item_repo()()
