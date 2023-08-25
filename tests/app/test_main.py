@@ -1,4 +1,4 @@
-# from fastapi.exceptions import HTTPException
+# from fastapi.exceptions import HTTPException testando
 # import pytest
 # from src.app.entities.item import Item
 # from src.app.enums.item_type_enum import ItemTypeEnum
