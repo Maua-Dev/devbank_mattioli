@@ -3,11 +3,20 @@
 # from ..enums.item_type_enum import ItemTypeEnum
 
 
-# class Item:
-#     name: str
-#     price: float
-#     item_type: ItemTypeEnum
-#     admin_permission: bool = False
+from ..enums.agencia_enum import agencyEnum
+
+
+class Client:
+    agency_id: agencyEnum
+    name: str
+    client_id: int
+    money: float
+    
+    def __init__(self, name: str = None, agency_id: agencyEnum = None, client_id: int = None, money: float = None):
+     self.name = name
+     self.agency_id = agency_id
+     self.client_id = client_id
+     self.money = money
     
 #     def __init__(self, name: str=None, price: float=None, item_type: ItemTypeEnum=None, admin_permission: bool=None):
 #         validation_name = self.validate_name(name)
