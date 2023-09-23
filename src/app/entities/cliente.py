@@ -1,8 +1,7 @@
 # from typing import Tuple
 # from ..errors.entity_errors import ParamNotValidated
 # from ..enums.item_type_enum import ItemTypeEnum
-
-
+awsedfoiuygfty8idsaUFTGYIDS9FTGYUIDSDFASiu789ygt
 from ..enums.agencia_enum import agencyEnum
 
 
