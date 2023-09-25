@@ -1,7 +1,7 @@
 # from typing import Tuple
-# from ..errors.entity_errors import ParamNotValidated
+from ..errors.entity_errors import ParamNotValidated
 # from ..enums.item_type_enum import ItemTypeEnum
-awsedfoiuygfty8idsaUFTGYIDS9FTGYUIDSDFASiu789ygt
+
 from ..enums.agencia_enum import agencyEnum
 
 
@@ -12,11 +12,34 @@ class Client:
     money: float
     
     def __init__(self, name: str = None, agency_id: agencyEnum = None, client_id: int = None, money: float = None):
+     if not self.validate_name(name):
+        raise ParamNotValidated ("name", "name must be a string")
      self.name = name
      self.agency_id = agency_id
+     if not self.validate_client_id(client_id):
+        raise ParamNotValidated ("client_id", "client_id must be greater than 0")
      self.client_id = client_id
+     if not self.validate_money(money):
+        raise ParamNotValidated ("money", "value can't be negative")
      self.money = money
     
+    @staticmethod
+    def validate_client_id (client_id: int) -> bool:
+       if not client_id > 0 :
+          return False
+       return True
+    
+    @staticmethod
+    def validate_name (name: str) -> bool:
+       if type(name) != str:
+         return False
+       return True
+    
+    @staticmethod
+    def validate_money (money: float) -> bool:
+        if money < 0:
+           return False
+        return True
 #     def __init__(self, name: str=None, price: float=None, item_type: ItemTypeEnum=None, admin_permission: bool=None):
 #         validation_name = self.validate_name(name)
 #         if validation_name[0] is False:

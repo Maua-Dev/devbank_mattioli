@@ -3,10 +3,10 @@
 # from src.app.enums.item_type_enum import ItemTypeEnum
 # from src.app.errors.entity_errors import ParamNotValidated
 
-from src.app.entities.cliente import Client
+from src.app.entities.client import Client
 from src.app.enums.agencia_enum import agencyEnum
 
-class Test_Cliente:
+class Test_Client:
     def test_client(self):
         client = Client(agency_id= agencyEnum.Santander, name="Alfredo", client_id = 1, money= 55420)
         
