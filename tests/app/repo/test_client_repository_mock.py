@@ -2,29 +2,25 @@ from src.app.enums.transaction_enum import transaction_enum
 from src.app.repo.client_repository_mock import ClientRepositoryMock
 from src.app.repo.transaction_repository_mock import TransactionRepositoryMock
 
-
 class Test_Client_Repository_mock :
-    def test_get_all_clients(self):
-        repo = ClientRepositoryMock()
-        clients = repo.get_all_clients()
-        excepted_client = repo.clients
-        assert excepted_client == clients
+        def test_get_all_clients(self):
+                repo = ClientRepositoryMock()
+                clients = repo.get_all_clients()
+                excepted_client = repo.clients
+                assert excepted_client == clients
 
-    def test_deposit_money(self):
-            for transaction
+        def test_deposit_money(self):
+                for transaction in self.transaction:
+                        if transaction.type_transaction == transaction_enum.DEPOSIT:
+                                expected_money = self.client.money + transaction.value
+                                assert self.client.money + transaction.value == expected_money
 
- def test_deposit_current_balance(self):
+
+        def test_withdraw_money(self):
                 for transaction in self.transaction:
-                        if transaction.type_transaction == TRANSACTIONS_TYPE_ENUM.DEPOSIT:
-                                expected_current_balance = self.user.current_balance + transaction.value
-                                assert self.user.current_balance + transaction.value == expected_current_balance
-        
-        def test_withdraw_current_balance(self):
-                for transaction in self.transaction:
-                        if transaction.type_transaction == TRANSACTIONS_TYPE_ENUM.WITHDRAW:
-                                expected_current_balance = self.user.current_balance - transaction.value
-                                assert self.user.current_balance - transaction.value == expected_current_balance
-        
+                        if transaction.type_transaction == transaction_enum.WITHDRAW:
+                                expected_money = self.client.money - transaction.value
+                                assert self.client.money - transaction.value == expected_money
 
 # class Test_ItemRepositoryMock:
 #     def test_get_all_items(self):

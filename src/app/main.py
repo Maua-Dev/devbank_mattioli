@@ -1,3 +1,33 @@
+from .entities.transaction import Transactions
+from .enums.transaction_enum import transaction_enum
+from mangum import Mangum
+import time
+from fastapi import FastAPI, HTTPException
+from .environments import Environments
+from src.app.repo.client_repository_mock import IClientRepository
+
+app = FastAPI()
+
+client_repo = Environments.get_client_repo()()
+
+transaction_repo = Environments.get_transaction_repo()()
+
+@app.get("/transactions")
+
+def get_all_transactions():
+     transactions = transaction_repo.get_all_transactions()
+     transaction_list = [transaction.to_dict() for transaction in transactions]
+     return {
+          'transactions':transaction_list
+     }
+
+@app.get("/")
+def get_user():
+     client = client_repo.get_client()
+     return client.to_dict()
+
+@app.get
+
 #from fastapi import FastAPI, HTTPException
 # from mangum import Mangum
 

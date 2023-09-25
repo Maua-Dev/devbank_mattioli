@@ -40,6 +40,13 @@ class Client:
         if money < 0:
            return False
         return True
+    def to_dict(self) -> dict:
+        return {
+            "name": self.name,
+            "agency": self.agency_id,
+            "account": self.client_id,
+            "current_balance": self.money
+        }
 #     def __init__(self, name: str=None, price: float=None, item_type: ItemTypeEnum=None, admin_permission: bool=None):
 #         validation_name = self.validate_name(name)
 #         if validation_name[0] is False:
